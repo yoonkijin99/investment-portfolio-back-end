@@ -28,9 +28,6 @@ app.use('/data', dataRoutes);
 app.listen(3070, () => {
     console.log('Connected to db - Listening on port,', 3070);
 })
-// app.listen(process.env.PORT, () => {
-//     console.log('Connected to db - Listening on port,', process.env.PORT);
-// })
 
 
 module.exports = app;

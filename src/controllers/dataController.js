@@ -6,7 +6,7 @@ const Alpaca = require("@alpacahq/alpaca-trade-api");
 
 const getUserPortfolioInfo = async (req, res) => {
 
-  console.log('getUserPortfolioInfo getUserPortfolioInfo')
+  console.log('getUserPortfolioInfo')
 
   try {
     const { userEmail } = req.user;
@@ -21,7 +21,7 @@ const getUserPortfolioInfo = async (req, res) => {
 
 
 const getUserPortfolioData = async (req, res) => {
-  console.log('getUserPortfolioData getUserPortfolioData');
+  console.log('getUserPortfolioData');
 
   try {
     const portfolioInfo = await getUserPortfolioInfo(req, res);
@@ -319,7 +319,7 @@ const updateAsset = async (pool, queries, email, symbol, date, shares) => {
 };
 
 const editPosition = async (req, res) => {
-  console.log('editPosition editPosition');
+  console.log('editPosition');
 
   const { email, symbol, date, shares } = req.body;
 
@@ -381,15 +381,13 @@ const handlePositionAdd = async (pool, queries, email, symbol, date, shares) => 
 };
 
 const addPosition = async (req, res) => {
-  console.log('addPosition addPosition');
+  console.log('addPosition');
 
   const { email, symbol, date, shares } = req.body;
 
   try {
     validateSymbol(symbol);
     validateDate(date);
-
-    console.log('addPosition --- ', date);
 
     const symbolUpperCase = symbol.toUpperCase();
 
@@ -406,6 +404,7 @@ const addPosition = async (req, res) => {
 
 
 const deleteHolding = async (req, res) => {
+  console.log('deleteHolding')
   const { email, symbol, date } = req.body;
 
   if (!email || typeof email !== 'string' || !symbol || typeof symbol !== 'string' || !date || typeof date !== 'string') {
